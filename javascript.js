@@ -18,16 +18,20 @@ for (let i = 0; i < buttons.length; i++) {
 function displayText (pressedButton){
 
     if (pressedButton.classList.contains("operator")){
-        operator = pressedButton.textContent;
-        previousNumber = currentNumber;
-        currentDisplay.textContent += pressedButton.textContent;
-        previousDisplay.textContent = currentDisplay.textContent;
+        operator = pressedButton.textContent; // set the operator for operate function
+        previousNumber = currentNumber; // store the current number as b operand
+        previousDisplay.textContent = currentNumber + operator; // display it in previous section
+        currentNumber = 0; //reset to be ready to receive new value
+
+
+        // currentDisplay.textContent += pressedButton.textContent; // display b operand with the operator next to it 
         currentDisplay.textContent = "0";
         return;
     }
 
     if(pressedButton.textContent === "="){
         currentDisplay.textContent = operate(operator,previousNumber,currentNumber);
+        previousNumber = currentDisplay.textContent;
         return;
     }
     currentNumber = pressedButton.textContent;
@@ -49,19 +53,19 @@ function operate(operator, numberA, numberB) { // operator needs to be string fo
 }
 
 function add(a,b) {
-    return a + b;
+    return Number(a) + Number(b);
 }
 
 function subtract(a,b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
 
 function multiply(a,b) {
-    return a * b;
+    return Number(a) * Number(b);
 }
 
 function divide (a,b) {
-    return a / b;
+    return Number(a) / Number(b);
 }
 
 
