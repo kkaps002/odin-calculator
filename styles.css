@@ -1,10 +1,14 @@
 body {
     background-color: antiquewhite;
+    box-sizing: border-box;
+    margin: 0;
 }
 
-#display-container {
-    background-color: aliceblue;
-    outline: solid 2px red;
-    height: 1em;
-    width: 5em;
+#current-display {
+    background-color: aquamarine;
+    height: 2em;
+}
+
+#previous-display {
+    background-color: azure;
 }

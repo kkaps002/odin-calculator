@@ -1,18 +1,17 @@
 let operator = " ";
-let numberA = " ";
-let numberB = " ";
+let previousNumber = 0;
+let currentNumber = 0;
 
-let pressedButton;
 
-const display = document.getElementById("display");
+const currentDisplay = document.getElementById("current-display");
+const previousDisplay= document.getElementById("previous-display");
 
 const buttons = document.getElementsByTagName("button");
 for (let i = 0; i < buttons.length; i++) {
     
     const button = buttons[i]; // Add an event listener to each button
     button.addEventListener("click", () => {
-        pressedButton = button;
-        displayText(pressedButton);
+        displayText(button);
     });
 }
 
@@ -20,19 +19,20 @@ function displayText (pressedButton){
 
     if (pressedButton.classList.contains("operator")){
         operator = pressedButton.textContent;
+        previousNumber = currentNumber;
+        currentDisplay.textContent += pressedButton.textContent;
+        previousDisplay.textContent = currentDisplay.textContent;
+        currentDisplay.textContent = "0";
+        return;
     }
 
-    if (pressedButton.classList.contains("number")) {
-        if (numberA === " " && operator === " "){
-            numberA = pressedButton.textContent;
-        }
-        if (numberA !== " " && operator !== " ") {
-            numberB = pressedButton.textContent;
-        }
-        
+    if(pressedButton.textContent === "="){
+        currentDisplay.textContent = operate(operator,previousNumber,currentNumber);
+        return;
     }
-
-    display.textContent = `${numberA} ${operator} ${numberB} `;
+    currentNumber = pressedButton.textContent;
+    currentDisplay.textContent = pressedButton.textContent;
+    
 }
 
 function operate(operator, numberA, numberB) { // operator needs to be string formatted
@@ -47,8 +47,6 @@ function operate(operator, numberA, numberB) { // operator needs to be string fo
             return divide(numberA,numberB);     
     }
 }
-
-
 
 function add(a,b) {
     return a + b;
