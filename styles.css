@@ -1,0 +1,10 @@
+body {
+    background-color: antiquewhite;
+}
+
+#display-container {
+    background-color: aliceblue;
+    outline: solid 2px red;
+    height: 1em;
+    width: 5em;
+}
