@@ -1,7 +1,13 @@
-body {
-    background-color: antiquewhite;
+*, *::before, *::after {
     box-sizing: border-box;
+    /* font-family: Gotham Rounded, sans-serif; */
+    font-weight: normal;
+  }
+  
+body {
+    padding: 0;
     margin: 0;
+    background-color: antiquewhite;
 }
 
 #current-display {
