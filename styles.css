@@ -2,6 +2,7 @@
     box-sizing: border-box;
     /* font-family: Gotham Rounded, sans-serif; */
     font-weight: normal;
+    font-size: larger;
   }
   
 body {
@@ -10,11 +11,21 @@ body {
     background-color: antiquewhite;
 }
 
-#current-display {
-    background-color: aquamarine;
-    height: 2em;
+.container {
+    display: grid;
+    grid-template-columns:repeat(4,2em);
+    width: 8em;
 }
 
-#previous-display {
-    background-color: azure;
+#display {
+    background-color: whitesmoke;
+    color: red;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.clicked {
+    background-color: bisque;
 }
